@@ -1,0 +1,17 @@
+Maxim Wellness Suite 3.2.0 - 10/23/2020
+	ECG Measurement is added for ME11B.
+	TEMP measurement is added for ME11B.
+	Flash Log Parser is improved.
+	Wellness Library is updated. 
+	BLE enable problem is fixed.
+	ME11A support has been added.
+	SpO2 UI is improved.
+	Notification icon bug is fixed.
+	Algorithm library run function returns the overall status instead of true/false.
+	BPT No Finger status is added.
+	IbiOffset is added to data stream.
+	Log file version is added to header section. 
+	Parsing raw data for different versions is supported.
+	User Profile is added, multiple user can be defined.
+	Device is updated according to the selected user for calculations.
+	Authentication function return type is changed. 
