@@ -1,0 +1,331 @@
+Received: from AS8P194MB1446.EURP194.PROD.OUTLOOK.COM (2603:10a6:20b:3d1::15)
+ by FRWP194MB2868.EURP194.PROD.OUTLOOK.COM with HTTPS; Tue, 3 Feb 2026
+ 16:43:36 +0000
+ARC-Seal: i=2; a=rsa-sha256; s=arcselector10001; d=microsoft.com; cv=pass;
+ b=TYH9bXhW07k9VL0awlO4zKxefRCS2HwQYvqY1uSR4eAmSCBhuaPXz1RTm1smjRFYZUrRaggokJ7UrM6M9QKEOj0fsu+QHkNLaSASyAHr/vFQs7fCCjhJ01mtRMv1aB7lM0gnhj9nKSR8XGfWXGKuW/PMh/66D3UTst3vygdttoeH7w/xEycSiWuWcts2rLeJNNC1lnp/3zT3X+sC/JlZRHtqHe/TVxAx6gBqx9+dPG+VESaRb6kBWBr0zrLPuF8w8d8busaqjcF/U99wgBS8ySXlqwRmPn7fnkTC/ZEBghHb8K8aDg0Ds/lYR5JbePPgRYNN6QzffB86R5a+8axqgQ==
+ARC-Message-Signature: i=2; a=rsa-sha256; c=relaxed/relaxed; d=microsoft.com;
+ s=arcselector10001;
+ h=From:Date:Subject:Message-ID:Content-Type:MIME-Version:X-MS-Exchange-AntiSpam-MessageData-ChunkCount:X-MS-Exchange-AntiSpam-MessageData-0:X-MS-Exchange-AntiSpam-MessageData-1;
+ bh=EUmTGB9AP10Z6XySek0LvLtzpQyBF/AE4A4ZNHq6pPY=;
+ b=hfGR+4rFj8tcIuM6umhJ6QtTVKD8MB/bof+FHfo+u96uXlWzSwc31tjAE82uI2T4G01dmvaYognIN15Fb1Edy9/348Tbh9UVfGYSvL+gy+5R7lA0qv2w4OuCymrR7/GOEhMhyuoJLz1ogzRS/oJft7iX8RXg9dZ1bzgjY+6+2GZjc865i3eMQ2xKcCVzq1wpBwLg/4QIWoGGLtEzR/o5MgrRg3jtrqVzfS0SGFg5Wx7zBF6K62ZD9OvQvcFbfbPAd8slqSP3JZvB5y6te6LCkXFASLHwP/OIM10nt69eydd/bhVdlB+hBeShIvwZVE+1YgMrd5/GRjfP8BlBjKYnfQ==
+ARC-Authentication-Results: i=2; mx.microsoft.com 1; spf=pass (sender ip is
+ 148.163.139.77) smtp.rcpttodomain=hotmail.com smtp.mailfrom=analog.com;
+ dmarc=pass (p=quarantine sp=quarantine pct=100) action=none
+ header.from=analog.com; dkim=pass (signature was verified)
+ header.d=analog.com; arc=pass (0 oda=1 ltdi=1
+ spf=[1,1,smtp.mailfrom=analog.com] dkim=[1,1,header.d=analog.com]
+ dmarc=[1,1,header.from=analog.com])
+Received: from DUZP191CA0038.EURP191.PROD.OUTLOOK.COM (2603:10a6:10:4f8::22)
+ by AS8P194MB1446.EURP194.PROD.OUTLOOK.COM (2603:10a6:20b:3d1::15) with
+ Microsoft SMTP Server (version=TLS1_2,
+ cipher=TLS_ECDHE_RSA_WITH_AES_256_GCM_SHA384) id 15.20.9587.12; Tue, 3 Feb
+ 2026 16:43:36 +0000
+Received: from DB5PEPF00014B93.eurprd02.prod.outlook.com
+ (2603:10a6:10:4f8:cafe::28) by DUZP191CA0038.outlook.office365.com
+ (2603:10a6:10:4f8::22) with Microsoft SMTP Server (version=TLS1_3,
+ cipher=TLS_AES_256_GCM_SHA384) id 15.20.9564.16 via Frontend Transport; Tue,
+ 3 Feb 2026 16:43:35 +0000
+Authentication-Results: spf=pass (sender IP is 148.163.139.77)
+ smtp.mailfrom=analog.com; dkim=pass (signature was verified)
+ header.d=analog.com;dmarc=pass action=none
+ header.from=analog.com;compauth=pass reason=100
+Received-SPF: Pass (protection.outlook.com: domain of analog.com designates
+ 148.163.139.77 as permitted sender) receiver=protection.outlook.com;
+ client-ip=148.163.139.77; helo=mx0b-00128a01.pphosted.com; pr=C
+Received: from mx0b-00128a01.pphosted.com (148.163.139.77) by
+ DB5PEPF00014B93.mail.protection.outlook.com (10.167.8.231) with Microsoft
+ SMTP Server (version=TLS1_3, cipher=TLS_AES_256_GCM_SHA384) id 15.20.9587.10
+ via Frontend Transport; Tue, 3 Feb 2026 16:43:34 +0000
+X-IncomingTopHeaderMarker: OriginalChecksum:91A2ADD1C746816BA03FEF278E57B5F0A1CC1283F41CE34660FF887D898C42FC;UpperCasedChecksum:0BC3E3F66725447C0F4DA0AC72A9FB447F18B2D386ED9B12400E396343BB080C;SizeAsReceived:11378;Count:47
+Received: from pps.filterd (m0375854.ppops.net [127.0.0.1])
+	by mx0b-00128a01.pphosted.com (8.18.1.11/8.18.1.11) with ESMTP id 613DYYQg137124
+	for <haakon.bekken@hotmail.com>; Tue, 3 Feb 2026 11:43:33 -0500
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=analog.com; h=
+	content-type:date:from:message-id:mime-version:subject:to; s=
+	DKIM; bh=EUmTGB9AP10Z6XySek0LvLtzpQyBF/AE4A4ZNHq6pPY=; b=nDccXNt
+	E8AyvhtfoldKnmUtVDvgt9Tz7HmM7A1xPmoN6NNCUzwCJZkytnBT1LE3IyuQC+3W
+	vp4ZTYMkavbrqzb1E0i/R+AMUYZrJDoBxD9R+eJl5dfESD0PAhR3zhVGGhzOs2rH
+	/ZLUj3LaVnrFP/DHIxuKzsnZ9bCgg0u7fwTsjDDt8pOZ+8SvgoMkE035iC7ROkv6
+	6Xe4G66wzJC2yRYezvxYx0GfW9tHQNtOKrX0UK3iDkWrk2Dv9V+3jivNAVUTfDYC
+	jk5CEYWdTL2jjnh08LnE5/JX3RJ6OkiX5KgPt0ubs6lrcUEwHJwke9PnmIZGK70X
+	l3QiYAu9tnBD6ng==
+Received: from cy7pr03cu001.outbound.protection.outlook.com (mail-westcentralusazon11010011.outbound.protection.outlook.com [40.93.198.11])
+	by mx0b-00128a01.pphosted.com (PPS) with ESMTPS id 4c3j19gm6f-1
+	(version=TLSv1.3 cipher=TLS_AES_256_GCM_SHA384 bits=256 verify=NOT)
+	for <haakon.bekken@hotmail.com>; Tue, 03 Feb 2026 11:43:33 -0500 (EST)
+ARC-Seal: i=1; a=rsa-sha256; s=arcselector10001; d=microsoft.com; cv=none;
+ b=FObDs5cDU6pvHe1avi2F3/idUQOxrWSTASwLHIr5mHxn3aikZwCSVkfcUVYSMnZwSQ2p121DvH/pb/LvjU3XKejBQYs2QLQKi5uodVjdl7FdzMMNRvsjCaL3D1TTYDZz1bhy4rFbHEQBQwJEDjNSa9S01hzb0QaUo2ZIqHBIx43Q8FaB29UM7Pum3RxXtTEPSxOL4SJpOfxQcd7QmBhJ2s8T5D4yif3v57dMsb3hWNC2hYsQg7S+9YfcoLf03Ppv+MmWem+a5LYhMLtwgtl5D8EFmQslnz14lp6T4MVWvmil2QS9C85/ETp/zoKV4GfZyMdAs62GgAD8tXU3K8ldSg==
+ARC-Message-Signature: i=1; a=rsa-sha256; c=relaxed/relaxed; d=microsoft.com;
+ s=arcselector10001;
+ h=From:Date:Subject:Message-ID:Content-Type:MIME-Version:X-MS-Exchange-AntiSpam-MessageData-ChunkCount:X-MS-Exchange-AntiSpam-MessageData-0:X-MS-Exchange-AntiSpam-MessageData-1;
+ bh=EUmTGB9AP10Z6XySek0LvLtzpQyBF/AE4A4ZNHq6pPY=;
+ b=soaC33ybyyY8m9w/nbsZOwIpxnW6thgY5GeYemY7uhWSDcWD9vKlaEm/dk3qVatDfTEaee9DA+1e0SHkZBogcRjF2N4qVVv9rA/r6R7xyveEplCJhGIVowcUShwkMP5mogj8o35han9c/kYpKbybmb/6aQ39UsEQ9Z2Lo26XNW6RrTN0qBw5P/GAg8pTG3O5aFHiKqEH4FGO/0f4MIG8RzDjXcR92g/eNMYwiM6ZQt6tVSB25xZB47mhnPoXIYlHKW8usMnzDxSskKJPq4LFxL3vjyqLkcgEMnfIw941P7Oy39JbKz21yn2W8rYYihzEeWCYlkRZrAz/O6dZq+hxiQ==
+ARC-Authentication-Results: i=1; mx.microsoft.com 1; spf=pass
+ smtp.mailfrom=analog.com; dmarc=pass action=none header.from=analog.com;
+ dkim=pass header.d=analog.com; arc=none
+Received: from SJ0PR03MB7027.namprd03.prod.outlook.com (2603:10b6:a03:4e3::15)
+ by SJ2PR03MB7355.namprd03.prod.outlook.com (2603:10b6:a03:557::9) with
+ Microsoft SMTP Server (version=TLS1_2,
+ cipher=TLS_ECDHE_RSA_WITH_AES_256_GCM_SHA384) id 15.20.9564.16; Tue, 3 Feb
+ 2026 16:43:29 +0000
+Received: from SJ0PR03MB7027.namprd03.prod.outlook.com
+ ([fe80::a968:d862:6319:95bc]) by SJ0PR03MB7027.namprd03.prod.outlook.com
+ ([fe80::a968:d862:6319:95bc%4]) with mapi id 15.20.9564.016; Tue, 3 Feb 2026
+ 16:43:26 +0000
+From: Customer Service at Analog Devices <CustomerService@analog.com>
+To: haakon bekken <haakon.bekken@hotmail.com>
+Subject: (CS-542632-Y9M6V3) MAXREFDES105 TRK:05283000002101
+Thread-Topic: (CS-542632-Y9M6V3) MAXREFDES105 TRK:05283000002101
+Thread-Index: AR8i4bYhFk5Dm3AKXbzm7Z3clSwqlQ==
+Date: Tue, 3 Feb 2026 16:43:26 +0000
+Message-ID: <3F0537AF3FC44D8E8A6482C281E0FD841DC952C2A95F@CUSTOMERSERVICE.ANALOG.COM>
+Accept-Language: en-US
+Content-Language: en-US
+X-MS-Has-Attach:
+X-MS-TNEF-Correlator:
+x-ms-traffictypediagnostic: SJ0PR03MB7027:EE_|SJ2PR03MB7355:EE_|DB5PEPF00014B93:EE_|AS8P194MB1446:EE_|FRWP194MB2868:EE_
+X-MS-Office365-Filtering-Correlation-Id: 18b913c0-b0e9-4e26-2e77-08de63435faf
+x-ms-exchange-senderadcheck: 1
+x-ms-exchange-antispam-relay: 0
+X-Microsoft-Antispam-Untrusted: BCL:0;ARA:13230040|69100299015|1800799024|376014|366016|38070700021|8096899003;
+X-Microsoft-Antispam-Message-Info-Original: =?us-ascii?Q?d2tpE78OWw24GdA51crZFPL54D8qET4X2nJsrKP3gRdKzo3/UVJjxGfwfR3S?=
+ =?us-ascii?Q?dcR3I2y90l+atZuh2rF601Xgvd1X7vpkmLAt8UwpP9qIyAaAn1XdOaN3tKE6?=
+ =?us-ascii?Q?o+UTRiWjX2TnqppOvLmWslHLcUPOw8c4yM6NZzjuamlJYjQkuu7FDN2oQKr7?=
+ =?us-ascii?Q?Ia7E+SuAG6lQUzPEEVB2HilXmA+XGwnQu+SindW2aWeK8y4mPzBbbuWXi6dp?=
+ =?us-ascii?Q?ws4j8zVTnkHgQ4UrIlY2PnHXKwzWhB24BWf3IrvRdqRtoavahJOmf4qc147J?=
+ =?us-ascii?Q?H+Buqch6JVrXIeco2MP4VfxRZxJpUNdvN7Y9l90ZhsDpaDFEzE5tRK2GPzDf?=
+ =?us-ascii?Q?VEbmgJD0Fw4hY3d/pcRwkzVY3t7h9h/38NIBR+s8yj0FNb9lYiYwRK4B32RU?=
+ =?us-ascii?Q?Wc7gxUZ0BnoqxPxv/vNFHJLXKJd3cQrDNUYzjk5m6dQwW96tbQWggOVfR/W2?=
+ =?us-ascii?Q?iZeFng4Qug4qt8C+QEHpwMY2gNh3MSyPe9GhUq4g+QUgsa5fBq6ttMzA3ah1?=
+ =?us-ascii?Q?VRmyeQZUFvfCtx0MV7jOi65IGyvLNBD5TCfd324JcBKaJbIADl8KRrmsYg+7?=
+ =?us-ascii?Q?JZa4j0VI3kUcBDVJyYHhUcxNTabH12Pe45vIYjpNjJfK6K/E53ooyn0h+y9A?=
+ =?us-ascii?Q?AhzVMmSLIFy3ltjjwsg5pEYGi+qstWUmg2NGiBQGRWablltDGqoHak2FQ2JB?=
+ =?us-ascii?Q?PxmrmduFbWNGbNuvdWxzFHm4/bNXnfewox8qidqGTxJKl0WF0M93LeBz9vPH?=
+ =?us-ascii?Q?hIZhK2vGJaVUMhA8GT2EtnZBWpQVC82Et7UiuQNxL9XyViRZZZty2gWCI8lr?=
+ =?us-ascii?Q?RJvB0iafd9/QFpP4bVVPSi8DufmpDTJEgxpHZOUlmh8KQVOmznNSrsv8OMZw?=
+ =?us-ascii?Q?OS/Xz3HFSAhYLDqopwtAxg8A7+8kK9TDxSS0lWp25QY+1/xD983ZUyR0Xl1X?=
+ =?us-ascii?Q?EE1PMPX8Lx+4NBjD6He5QUKhWAptxc/3isV6VxDGIQ1aL/burwD7eSS396gX?=
+ =?us-ascii?Q?wOGK4W3bdSMQ/n5t9fs+xhyoai0tCiYSz4mgo8PCxU3MUKUBAxHGbevYgtLR?=
+ =?us-ascii?Q?vvKx7PnmFAa4tDxzhWcm/mF057So569livvXEKxH341OzndKUOFM9A9i1CKY?=
+ =?us-ascii?Q?y6Pa+RarzAxXWYtO/uSnnOeEldq38bTcUOXSfGeBXgDhnN/woEpfHU1iHBZf?=
+ =?us-ascii?Q?nVfRATKFoyayZRy6QGZgJqb1Vm9kHk/3QBlbEajtA9G1qcIagfb7zEz596TZ?=
+ =?us-ascii?Q?zC6/Bn+nozgtNzEWGpZynJetjs//GB5Bu1lkye2TXqnFCXnn9xhGA2IenKbn?=
+ =?us-ascii?Q?rpsO/eoiNAMC8oOm0CH2ebfNyt8SIdYv3yBD4bsxaJ78x6C0kjJliQQpZCY4?=
+ =?us-ascii?Q?QgwI68sEnVBlQmUMGxbDepnX6HVIJxA5QwbbbRJ+b+3MndxeTfMRO57u6LlK?=
+ =?us-ascii?Q?NgJ23SZz0xkYdwORgI5Pc2kFRao5FO6Jqt3J1T0zTxtSAfzrxX4rrmCQ/9D9?=
+ =?us-ascii?Q?/kpGvkfzJsndUB+pCjvHgTR3t6TIVNfnIQFc+4lMzyHfloKS4muWDL1IYC4d?=
+ =?us-ascii?Q?MLE1880rx0jEvbZdzHZFQbGaSLArM650zwzwCpJ+ZO5avPZCkkYm9DZixneV?=
+ =?us-ascii?Q?gX4tKQVTSIE0yF1rl5wWBXM=3D?=
+X-Forefront-Antispam-Report-Untrusted: CIP:255.255.255.255;CTRY:;LANG:en;SCL:1;SRV:;IPV:NLI;SFV:NSPM;H:SJ0PR03MB7027.namprd03.prod.outlook.com;PTR:;CAT:NONE;SFS:(13230040)(69100299015)(1800799024)(376014)(366016)(38070700021)(8096899003);DIR:OUT;SFP:1101;
+X-MS-Exchange-AntiSpam-MessageData-Original-ChunkCount: 1
+X-MS-Exchange-AntiSpam-MessageData-Original-0: =?Windows-1252?Q?CPEugwGpVbff7VnpZKulZ5t5afmjSSbjOjdCDz1tkGjaM7mJtf+pgmPS?=
+ =?Windows-1252?Q?dXHgsjWhM7eJ1wFCk/ParQfOHS4/SyVotVBzYXn1OwJFYzD3ef/94ch6?=
+ =?Windows-1252?Q?ZlSs2OL2Baw5xWiszttdzbgztAf/eED++zthX1T9e9/wSpUCrZahYGzm?=
+ =?Windows-1252?Q?OdteckD8HFZKGJkw15qJbst3zN3ZtD3I6EuAH8q5EXxdDuJqIIsAEq+C?=
+ =?Windows-1252?Q?ElKBT2DgRgqiQ3vewGfMEMPwuW008fYAMHLmb8oC2DHv3yC/pzTxmE6H?=
+ =?Windows-1252?Q?E30FrhNkbYF466/qjyJLNXn3o4Mk5prjKrtmUZ4ir76M+lqQ8G3R2cuB?=
+ =?Windows-1252?Q?49bQoa7zN+8tcnmNJ+bMD6RKtEcZUtIe6RPsQ3X5EPNaN7I2Pe5Vx7Yx?=
+ =?Windows-1252?Q?EEQwSVZEMZ2VgFzT7lIP4aBgGDbUUftCdeuiZEzJzL2CRb8R4EAzzvX1?=
+ =?Windows-1252?Q?XAfExs5wUoVEoLYqdSpaptfxa1mrGoQq1sc+yxILfBFAhraRcSkcK0BS?=
+ =?Windows-1252?Q?5REdgm21wwiXGwKy/YQEm8q17QUzrBqXmORI1jYimT3RyRQADNPGBBTQ?=
+ =?Windows-1252?Q?M1Ad68jpsmC8r1aLcqxFPzvrgSYbbEAO2RP6swJRHxqFmracMqVl4lGg?=
+ =?Windows-1252?Q?nAEQP4+Gp4jI+IC6/0RpUpamCda8rMcrkctdY0WbVSaenJ42r6A/+YO0?=
+ =?Windows-1252?Q?dvqS/WTvUZWX55ne2pn1xLD8IylHeGzyfV5kYmFUDF//uDvhRLQ5jaZW?=
+ =?Windows-1252?Q?pSFY2L/y60tFVr/TmDZFmDPUF5PFMnSY3yqaIT+UBAoDv28Tt5zym9vW?=
+ =?Windows-1252?Q?ds53Tl+CJ6ruhTtUYuN78fik2PTXC0Mkrmbs2x/lnE5i/8OEiZnYQXUM?=
+ =?Windows-1252?Q?LRUipEVhB9hBzT8U1u6onkKWB9ylNrUU1OBgMTG6alUZSoa4+bLid0gC?=
+ =?Windows-1252?Q?Q0iyWqdfT9SM3Ko9WJOgufXjCfm01ZnGdKTCNuVS/r07ZoTBTP0oOhtu?=
+ =?Windows-1252?Q?Ug3eVNtleog8FPNBYN3Rf80YGy3IwCFZZdbohYtbErY23Ch3AIQD6gx8?=
+ =?Windows-1252?Q?KKXGxA+2jIxhf33N69z09wWFnTT29JqG4o+CIS6NFSF7648N5oHSJt0x?=
+ =?Windows-1252?Q?62vMqh8IcYkmXfVC+yRWwtT8uau+1GJMNXrkT3VFm+4tLoEV66VqQgsq?=
+ =?Windows-1252?Q?oPmT+34xWfFsIsu2o7gsMGoGlw9btAp9vur2dXi8KEWpqzOcnUAM2ss6?=
+ =?Windows-1252?Q?uFjFS5G5vzfa+hxkkvg83daZoDqSfTkeogjgODxd0qjI9izvcmTQLtvr?=
+ =?Windows-1252?Q?8uZeyLkpgq8+Wfjzd076gFVF5/1+zR7OjwmPNjJcvP/na3c7QPpc55kM?=
+ =?Windows-1252?Q?MifcMFQv67pVF32cOtapGe5eqk76f1XP5L7gfsMpcu+1gD4tQFqlabJc?=
+ =?Windows-1252?Q?GDJ4KzRCK3DO3U7xlt8cL+l4bVaTHix/76tA0BHTDO/wJ7DdeaNN8kE0?=
+ =?Windows-1252?Q?iw2fpOzE5l3jg3owVPzNefrc6RQPEH3GkYU8Mte8clardRGJMg2RpHGp?=
+ =?Windows-1252?Q?bcZyTfBiBogG7hw/Pa1SyUpxI1pDC4EvkOglI8jwsiWXNBUOLKyPHjY1?=
+ =?Windows-1252?Q?hDY9DOi2XK5xLfcIEsmDAh6A/zM3w/urv9NQvhQH4wkmAx4m2B+pGzLP?=
+ =?Windows-1252?Q?q1Jlxf30AzfeJVOQsWFFMKPPwUzuc6grYWFAG2xjctOLi3GRMJ4FE6YY?=
+ =?Windows-1252?Q?VORNR7dkDR2Tlddnfw9P+p/hlSNL0RTXUzwN86hM8tFtsHLInHVY658R?=
+ =?Windows-1252?Q?TWEgOSeg2x/Yg1lx9yj/vtah33sQGOZiPiWkXIK9TYEtdzF2yLEPjV0l?=
+ =?Windows-1252?Q?ism+7hUzITiZZg=3D=3D?=
+Content-Type: multipart/alternative;
+	boundary="_000_3F0537AF3FC44D8E8A6482C281E0FD841DC952C2A95FCUSTOMERSER_"
+X-MS-Exchange-Transport-CrossTenantHeadersStamped: SJ2PR03MB7355
+X-Proofpoint-Spam-Details-Enc: AW1haW4tMjYwMjAzMDEzMyBTYWx0ZWRfXx+ChrCF0BZ1C
+ m+f1T0AoLkqzo5yh6uecgOewLLb5BFnMLqQi8rYHYdWRJfAVuN/mnpkULy5DvEqlFzLi0QuQTlc
+ dMd8I1owZJWql4ObxaBrp8hmjLYj3cPPUhpv6XOeg+5HBDtpg8ATAFt8ZJ/L5n036yn6IoX6f9V
+ hnl/dRFvBW301m99EGb92FinX0GW+Ro36Up4O0km4+EyBkiDGjwhbpgVfNrSHLlRSQBYRlKKl/2
+ CIAPqmlb1jeewxI+hX7Wh6TL6J9x2U1sIMV4U7H4nxGfsvYKiH/KnEIoULAyKfQV/pmV1+uuwC/
+ ZwAn5fH3Y5eq2g1+ry1q1R0MYe0zJbkliGphwD8Hw/PxWZU825uO2bfLeqvB6U9NSdM50NTzeyy
+ Gvvk7FWRc5SIn9SJ2hY9AtmuSMuWRIezSPmFod2ErQQmqe5pmYZX70stK7cTA+UwppDcWT2LXOF
+ UVvr6MRL8RsGbR8zY3g==
+X-Proofpoint-GUID: -XbsZ_Y_a-MQyGoV3bblB2JY7NnCieSR
+X-Authority-Analysis: v=2.4 cv=T/uBjvKQ c=1 sm=1 tr=0 ts=698225b5 cx=c_pps
+ a=EUTAWq9+kh0QDJjqgNTvsw==:117 a=z/mQ4Ysz8XfWz/Q5cLBRGdckG28=:19
+ a=lCpzRmAYbLLaTzLvsPZ7Mbvzbb8=:19 a=xqWC_Br6kY4A:10 a=HzLeVaNsDn8A:10
+ a=g8TUdU_LZmEA:10 a=VkNPw1HP01LnGYTKEx00:22 a=69EAbJreAAAA:8
+ a=z7u16rusrbwOpUq8YvQA:9 a=pILNOxqGKmIA:10 a=xDONv2IyAAAA:8
+ a=qs1KTZCka_v8pztA:21 a=_W_S_7VecoQA:10
+X-Proofpoint-ORIG-GUID: -XbsZ_Y_a-MQyGoV3bblB2JY7NnCieSR
+X-Proofpoint-Virus-Version: vendor=baseguard
+ engine=ICAP:2.0.293,Aquarius:18.0.1121,Hydra:6.1.51,FMLib:17.12.100.49
+ definitions=2026-02-03_05,2026-02-02_01,2025-10-01_01
+X-Proofpoint-Spam-Details: rule=outbound_notspam policy=outbound score=0
+ suspectscore=0 impostorscore=0 lowpriorityscore=0 malwarescore=0 bulkscore=0
+ spamscore=0 priorityscore=1501 phishscore=0 adultscore=0 clxscore=1015
+ classifier=typeunknown authscore=0 authtc= authcc= route=outbound adjust=0
+ reason=mlx scancount=1 engine=8.22.0-2601150000 definitions=main-2602030133
+X-IncomingHeaderCount: 47
+Return-Path: CustomerService@analog.com
+X-MS-Exchange-Organization-ExpirationStartTime: 03 Feb 2026 16:43:35.2463
+ (UTC)
+X-MS-Exchange-Organization-ExpirationStartTimeReason: OriginalSubmit
+X-MS-Exchange-Organization-ExpirationInterval: 1:00:00:00.0000000
+X-MS-Exchange-Organization-ExpirationIntervalReason: OriginalSubmit
+X-MS-Exchange-Organization-Network-Message-Id: 18b913c0-b0e9-4e26-2e77-08de63435faf
+X-EOPAttributedMessage: 0
+X-EOPTenantAttributedMessage: 84df9e7f-e9f6-40af-b435-aaaaaaaaaaaa:0
+X-MS-Exchange-Organization-MessageDirectionality: Incoming
+X-MS-Exchange-Transport-CrossTenantHeadersStripped: DB5PEPF00014B93.eurprd02.prod.outlook.com
+X-MS-PublicTrafficType: Email
+X-MS-Exchange-Organization-AuthSource: DB5PEPF00014B93.eurprd02.prod.outlook.com
+X-MS-Exchange-Organization-AuthAs: Anonymous
+X-MS-UserLastLogonTime: 2/3/2026 4:03:43 PM
+X-MS-Office365-Filtering-Correlation-Id-Prvs: 5a1a58bf-744a-47b6-a27f-08de63435aa5
+X-MS-Exchange-EOPDirect: true
+X-Sender-IP: 148.163.139.77
+X-SID-PRA: CUSTOMERSERVICE@ANALOG.COM
+X-SID-Result: PASS
+X-MS-Exchange-Organization-SCL: 1
+X-Microsoft-Antispam: BCL:0;ARA:1444111002|46080799006|11020799009|461199028|10300799038|1360799030|1370799030|1380799030|1602099012|440099028|3412199025|4302099013|30041999003;
+X-MS-Exchange-CrossTenant-OriginalArrivalTime: 03 Feb 2026 16:43:34.8231
+ (UTC)
+X-MS-Exchange-CrossTenant-Network-Message-Id: 18b913c0-b0e9-4e26-2e77-08de63435faf
+X-MS-Exchange-CrossTenant-Id: 84df9e7f-e9f6-40af-b435-aaaaaaaaaaaa
+X-MS-Exchange-CrossTenant-AuthSource: DB5PEPF00014B93.eurprd02.prod.outlook.com
+X-MS-Exchange-CrossTenant-AuthAs: Anonymous
+X-MS-Exchange-CrossTenant-FromEntityHeader: Internet
+X-MS-Exchange-CrossTenant-RMS-PersistedConsumerOrg: 00000000-0000-0000-0000-000000000000
+X-MS-Exchange-Transport-CrossTenantHeadersStamped: AS8P194MB1446
+X-MS-Exchange-Transport-EndToEndLatency: 00:00:01.8812198
+X-MS-Exchange-Processed-By-BccFoldering: 15.20.9587.000
+X-Microsoft-Antispam-Mailbox-Delivery:
+	ucf:0;jmr:0;ex:0;auth:1;dest:I;ENG:(5062000311)(920221119095)(90000117)(920221120095)(90010023)(91010020)(91040095)(9050020)(9100341)(944500132)(2008001181)(4810010)(4910033)(9575002)(10195002)(9320005)(120001);
+X-Message-Delivery: Vj0xLjE7dXM9MDtsPTA7YT0wO0Q9MTtHRD0xO1NDTD0z
+X-Microsoft-Antispam-Message-Info:
+	=?Windows-1252?Q?vi224sELpVCnJC6/CM3ZduESxclmF2bIFZ82mxugKcMr9EzG2sTrg5eS?=
+ =?Windows-1252?Q?ZvMJPrNIqgvMTFQTIdzWK7lsqFwPbeUxY6E3xK34UcPvLaydx4RPElEB?=
+ =?Windows-1252?Q?jNChdidqI38GU30CX8VD3UFo+TD9Li+J6FErPh+6Gt5kv7C2HB3L6Po8?=
+ =?Windows-1252?Q?cJQLYBEKKs1Osl00A8z8eApNUSlsUcYF+6n8/d93B6FIrl4qDMXrdaQv?=
+ =?Windows-1252?Q?xrabOs+7KsLooXab60/WIJqa8h8QH6tBAXiVTVe101bh8M7LWDcdyStc?=
+ =?Windows-1252?Q?3//L9O5rYOm0T+S/PK5WNi3e3S35ZNkAlhK3FHKlpr7fuDH3pA7hU6BC?=
+ =?Windows-1252?Q?Yalafd6R2h1wkOqpsnvyxdVrkCEc5+X/bn7IW8zGM35Yg8fHMbPc6lD1?=
+ =?Windows-1252?Q?jr7iLXbwZCV1le/IaYd0zYhH1e6zXFUkkjg8ZR/OnTksnfH49wRVxR+T?=
+ =?Windows-1252?Q?qW+50Pp4I6LP9T3AfZKM8VV8ZRIwopMV3eD0F58xJWjYnSNWOvj2U0Zm?=
+ =?Windows-1252?Q?gT0y2PlBz1NV92EqzOv3NwYYFAGzHJoFglIlR2pHKfpEyeGzZeWManKw?=
+ =?Windows-1252?Q?uOJxz3Ik+9/Le8vQ9mzXpUSGD2z5BVOAt7+bnjyYGU1EfQnJjPAZ/a8B?=
+ =?Windows-1252?Q?iXYKZl9MwBrDd4PegUwJPJEiCjWKtE2FwIfwWO7DvoCjNomMOg5kNocH?=
+ =?Windows-1252?Q?agzJrTpNNiC5MzAsbltA047TPmjHvOKGB+qiiFHxQyVDjkjja0ufSrsG?=
+ =?Windows-1252?Q?GxTT9Ia4Xw9tZTtcYsX2YRmy8AthSTp29uAEZ/XQAx8Y5QPwEeHCF3Lx?=
+ =?Windows-1252?Q?62k+2ekY4ELn941PkFVn6S6JvAasmf/RXVQJ7H7Ugi9v5dOkr4/jeEJV?=
+ =?Windows-1252?Q?ZLL2jlghYX+xzBA3OloWX3Hk1NK9jmqFnLT9SiUaozV2QLW6Pcu1D/HH?=
+ =?Windows-1252?Q?fYpSbJPaVdzyL8aNckrF8AacG/qMRQXG37mPpdLCJm//CewJTB8WSqKu?=
+ =?Windows-1252?Q?n4o3ckI+JbnsEDlwMbg3dTdOpD58HaOeJQCSR0qBQk6Z8YAtHjveElra?=
+ =?Windows-1252?Q?scCn7QMr42csxwEggUykVCHtlrbw8Xf4f8C6Si+KzwBhWdwsxqS487KO?=
+ =?Windows-1252?Q?YfKgDNBI1svv9XYKEPLFAQbML6BOeYlhTeSlq5q3txiBMgm+DknSyfFj?=
+ =?Windows-1252?Q?0roHcWP82q/qkc+cDbyg0UK1JyMNegw4pCPURTZRP4CE3jM9gTIrJT17?=
+ =?Windows-1252?Q?mfD7rHWQEYO4JHxbtDHGZbtUDEQLzSxbsjAetaBVXE5D2pTvh7l6gFbp?=
+ =?Windows-1252?Q?jFvG8IIktRx/q7JaL42azhYGXOqWDA2iik4dInFdVZFp+zJg+ExHKcRV?=
+ =?Windows-1252?Q?AtGRQcBnxrfo4k5YGMHYgLkgqjNfwQIhdqZGY6pbTOhreAd11S7NPo45?=
+ =?Windows-1252?Q?cG22/fBvF9nc+EMSK3HvSl3IHjnevy+vDKUzrgJ5PjiJaBlHnsCbOo5z?=
+ =?Windows-1252?Q?jw0e5CxQjA6EttELzy6YGHquzbxxDW3pBn9J5MwN6LBb1HaDRRwGRtf0?=
+ =?Windows-1252?Q?T1mrZ6GZvJh1IS7sG9uQXQsAgZMoLEweGZDCajK60LyyiUbMdsMUU7H4?=
+ =?Windows-1252?Q?5Go3dQ35afjIj+a/rkOP+K56R1v8tp9btDMfg2nZc9unaXtNFdeDbDW2?=
+ =?Windows-1252?Q?2px+rf+aYvI+rEnYY1iuRdqnGMBuSyTTzJMLsGzy4H0SuvuhCNR8H2Wb?=
+ =?Windows-1252?Q?NB+6YAlFo3LerQ9Ds9k4+oLSqR+eOz5CubjKLh1LKmULF4goLTv6MWqD?=
+ =?Windows-1252?Q?4Wl+xVA/86kldeOhZYWyRz6K7IgGdr9IWlKFd1t8V2QLUf7dfdsmyg9T?=
+ =?Windows-1252?Q?9SxzCPhEj7uznrmqXkYmaG/qYDlPW0/U+RaDbY3ucS2TellwL9z1vGbP?=
+ =?Windows-1252?Q?lML9PWhAI2mRgooT58KYvikw9O6aPhGUCIXS8k/XkGgiHPtUqWCoD/2k?=
+ =?Windows-1252?Q?mXNbiR5CkLweE0+6wBg7fmNjylA3MsL3aH5ffOPktjS3brEDSnlrWU8J?=
+ =?Windows-1252?Q?nirDlX3m0TFIrhfV?=
+MIME-Version: 1.0
+
+--_000_3F0537AF3FC44D8E8A6482C281E0FD841DC952C2A95FCUSTOMERSER_
+Content-Type: text/plain; charset="Windows-1252"
+Content-Transfer-Encoding: quoted-printable
+
+Hi Haakon,
+
+
+
+Hope all is well.
+
+
+
+Please note, due to ADI policy we do not share documents with customers rea=
+ching out via public email domains.
+
+E.g =93@hotmail.com=94.
+
+
+
+Kindly submit a new request using a private company domain and we will be h=
+appy to assist.
+
+
+
+I will close this case now.
+
+
+
+Best,
+
+
+
+Jack
+
+
+
+--_000_3F0537AF3FC44D8E8A6482C281E0FD841DC952C2A95FCUSTOMERSER_
+Content-Type: text/html; charset="Windows-1252"
+Content-Transfer-Encoding: quoted-printable
+
+<html><head>
+<meta http-equiv=3D"Content-Type" content=3D"text/html; charset=3DWindows-1=
+252">
+</head>
+<body>
+<div class=3D"ck-content" data-wrapper=3D"true" dir=3D"ltr" style=3D"--ck-i=
+mage-style-spacing: 1.5em; --ck-inline-image-style-spacing: calc(var(--ck-i=
+mage-style-spacing) / 2); font-family: Segoe UI; font-size: 9pt;">
+<p style=3D"margin: 0;">Hi Haakon,</p>
+<p style=3D"margin: 0;">&nbsp;</p>
+<p style=3D"margin: 0;">Hope all is well.</p>
+<p style=3D"margin: 0;">&nbsp;</p>
+<p style=3D"margin: 0;">Please note, due to ADI policy we do not share docu=
+ments with customers reaching out via public email domains.</p>
+<p style=3D"margin: 0;">E.g =93@hotmail.com=94.</p>
+<p style=3D"margin: 0;">&nbsp;</p>
+<p style=3D"margin: 0;">Kindly submit a new request using a private company=
+ domain and we will be happy to assist.</p>
+<p style=3D"margin: 0;">&nbsp;</p>
+<p style=3D"margin: 0;">I will close this case now.</p>
+<p style=3D"margin: 0;">&nbsp;</p>
+<p style=3D"margin: 0;">Best,</p>
+<p style=3D"margin: 0;">&nbsp;</p>
+<p style=3D"margin: 0;">Jack</p>
+</div>
+<img id=3D"CRMTrackingImageUniqueID-3555c865-1f01-f111-8407-7c1e520bd670" h=
+eight=3D"1" width=3D"1" src=3D"https://crmri.crm.dynamics.com:443/api/Email=
+Analytics/LoadMagicPixel?TrackingId=3D3555c865-1f01-f111-8407-7c1e520bd670&=
+amp;ConversationTrackingId=3D2ada2b5c-d2f3-42ff-a62c-1c37b937f14c&amp;Clien=
+tType=3Dwebclient&amp;OrganizationId=3Dd8a66f39-2afe-4443-b632-1bced59556b8=
+&amp;Salt=3D049fe450-9db7-43a5-a8ef-8db31e87b9ea&amp;TenantId=3Deaa689b48f8=
+740e09c6f7228de4d754a&amp;ValidityToken=3D8WmvLTh%2br7UtJMgL1NtB17DwQ6ngSkN=
+VhCu0qzvk16s%3d">
+</body>
+</html>
+
+--_000_3F0537AF3FC44D8E8A6482C281E0FD841DC952C2A95FCUSTOMERSER_--
